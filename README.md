@@ -1,30 +1,77 @@
-# React + TypeScript + Vite
+# Golden Raspberry Awards List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project aims to create a comprehensive list of the winners and nominees of the Golden Raspberry Awards, also known as the Razzies. The Golden Raspberry Awards is an annual ceremony that recognizes the worst in film.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Expanding the ESLint configuration
+## Introduction
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Welcome to the Golden Raspberry Awards List project! This project aims to provide a comprehensive list of the winners and nominees of the Golden Raspberry Awards, also known as the Razzies. The Golden Raspberry Awards is an annual ceremony that recognizes the worst in film.
 
-- Configure the top-level `parserOptions` property like this:
+With this project, you can easily browse through the extensive database of Golden Raspberry Awards winners and nominees. Whether you're curious about the worst films of all time or want to explore specific categories, this project has got you covered.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+Stay tuned as we continuously update the database with the latest awards and nominees. We also welcome contributions from the community, so if you have any bug fixes, feature enhancements, or data updates, please refer to the [Contributing](#contributing) section for guidelines.
+
+Start exploring the world of Golden Raspberry Awards and discover the worst of the worst in film history!
+
+## Features
+
+- Dashboard displaying:
+
+  - List years with multiple winers
+  - Top 3 studios with the most winners
+  - Producers with the longest interval between wins
+  - List movies winners by year
+
+- List section to view all movies
+
+## Usage
+
+To use this project, follow these steps:
+
+1. Clone the repository to your local machine:
+
+```
+git clone https://github.com/matthaussousa/golden-raspberry-awards-list.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Navigate to the project directory:
+
+```
+cd golden-raspberry-awards-list
+```
+
+3. Install the required dependencies:
+
+```
+npm install
+```
+
+4. Start the development server:
+
+```
+npm run dev
+```
+
+5. Open your web browser and visit [http://localhost:5173](http://localhost:5173) to access the application.
+
+6. Explore the Golden Raspberry Awards list by browsing through the different categories and years. You can also use the search functionality to find specific movies or nominees.
+
+7. If you encounter any issues or have suggestions for improvements, please refer to the [Contributing](#contributing) section for guidelines on how to contribute to the project.
+
+8. Enjoy exploring the worst of the worst in film history with the Golden Raspberry Awards List!
+
+## Contributing
+
+If you would like to contribute to this project, please follow the guidelines outlined in [CONTRIBUTING.md](CONTRIBUTING.md). We welcome any contributions, including bug fixes, feature enhancements, and data updates.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this project as per the terms of the license.
