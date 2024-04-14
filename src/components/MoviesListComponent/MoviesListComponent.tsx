@@ -112,7 +112,10 @@ export default function MoviesListComponent() {
         dataSource={moviesList.data?.content || []}
         pagination={{
           pageSize: params.size,
-          total: (moviesList.data?.totalElements || 0) - params.size,
+          total:
+            moviesList.data?.totalElements && moviesList.data?.totalElements > 0
+              ? moviesList.data?.totalElements - params.size
+              : 0,
           showTotal: (total) => total + " items",
           showSizeChanger: false,
         }}

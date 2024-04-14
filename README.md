@@ -60,6 +60,18 @@ npm install
 npm run dev
 ```
 
+5. Run tests:
+
+```
+npm run tests
+```
+
+6. Run coverage:
+
+```
+npm run coverage
+```
+
 5. Open your web browser and visit [http://localhost:5173](http://localhost:5173) to access the application.
 
 6. Explore the Golden Raspberry Awards list by browsing through the different categories and years. You can also use the search functionality to find specific movies or nominees.
