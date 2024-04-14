@@ -1,7 +1,12 @@
 import axios from "axios";
 
+export const baseURL = "https://tools.texoit.com/backend-java/api";
+
+/**
+ * Axios instance for making HTTP requests.
+ */
 const provider = axios.create({
-  baseURL: "https://tools.texoit.com/backend-java/api",
+  baseURL: baseURL,
   timeout: 120000,
 });
 

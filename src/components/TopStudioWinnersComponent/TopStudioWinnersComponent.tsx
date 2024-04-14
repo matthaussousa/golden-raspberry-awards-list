@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Table, TableProps, Typography } from "antd";
-import { getTopStudioWinners } from "../../providers/moviesProvider.";
+import { getTopStudioWinners } from "../../providers/moviesProvider";
 import { StudioWinnerType } from "../../types/movieTypes";
 
 const columns: TableProps<StudioWinnerType>["columns"] = [
@@ -16,6 +16,10 @@ const columns: TableProps<StudioWinnerType>["columns"] = [
   },
 ];
 
+/**
+ * Renders a component that displays the top 3 studios with winners.
+ * @returns JSX.Element
+ */
 export default function TopStudioWinnersComponent() {
   const topStudioWinners = useQuery({
     retry: false,
@@ -36,6 +40,7 @@ export default function TopStudioWinnersComponent() {
       <Typography.Title level={4}>Top 3 Studios with winners</Typography.Title>
 
       <Table
+        data-testid="studio-winners-list"
         columns={columns}
         loading={topStudioWinners.isFetching}
         dataSource={topStudioWinners.data || []}

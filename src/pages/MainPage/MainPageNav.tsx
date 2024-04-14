@@ -1,5 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
 
+/**
+ * Renders the navigation component for the main page.
+ * @returns The JSX element representing the navigation component.
+ */
 export default function MainPageNav() {
   const location = useLocation();
 

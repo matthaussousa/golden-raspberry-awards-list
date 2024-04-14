@@ -1,9 +1,9 @@
+import { SearchOutlined } from "@ant-design/icons";
 import { useQuery } from "@tanstack/react-query";
 import { Button, Input, InputRef, Table, TableProps, Typography } from "antd";
 import { useCallback, useRef, useState } from "react";
-import { getMovies } from "../../providers/moviesProvider.";
+import { getWinnersMoviesByYear } from "../../providers/moviesProvider";
 import { MovieType } from "../../types/movieTypes";
-import { SearchOutlined } from "@ant-design/icons";
 
 const columns: TableProps<MovieType>["columns"] = [
   {
@@ -23,10 +23,16 @@ const columns: TableProps<MovieType>["columns"] = [
   },
 ];
 
+/**
+ * Renders a component that displays a list of movie winners by year.
+ */
 export default function MoviesWinnersByYear() {
   const [year, setYear] = useState<number>();
   const yearRef = useRef<InputRef>(null);
 
+  /**
+   * Handles the search action when the user presses enter or clicks the search button.
+   */
   const onSearch = useCallback(() => {
     if (yearRef.current?.input?.value) {
       setYear(Number(yearRef.current?.input?.value));
@@ -38,10 +44,7 @@ export default function MoviesWinnersByYear() {
     retry: false,
     queryKey: ["moviesWinnersByYear", year],
     queryFn: async () => {
-      const response = await getMovies({
-        year,
-        winner: true,
-      });
+      const response = await getWinnersMoviesByYear(year);
 
       return response.data;
     },
@@ -52,10 +55,22 @@ export default function MoviesWinnersByYear() {
       <Typography.Title level={4}>List movie winners by year</Typography.Title>
 
       <div className="flex gap-2 mb-2">
-        <Input type="number" name="year" ref={yearRef} />
-        <Button type="primary" icon={<SearchOutlined />} onClick={onSearch} />
+        <Input
+          data-testid="year-input"
+          type="number"
+          name="year"
+          ref={yearRef}
+          onPressEnter={onSearch}
+        />
+        <Button
+          data-testid="year-search"
+          type="primary"
+          icon={<SearchOutlined />}
+          onClick={onSearch}
+        />
       </div>
       <Table
+        data-testid="movies-winners-by-year-list"
         columns={columns}
         loading={topStudioWinners.isFetching}
         dataSource={topStudioWinners.data || []}

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Table, TableProps, Typography } from "antd";
-import { getProducersWins } from "../../providers/moviesProvider.";
+import { getProducersWins } from "../../providers/moviesProvider";
 import { ProducerWinType } from "../../types/movieTypes";
 
 const columns: TableProps<ProducerWinType>["columns"] = [
@@ -26,6 +26,10 @@ const columns: TableProps<ProducerWinType>["columns"] = [
   },
 ];
 
+/**
+ * Renders the ProducersWinsComponent.
+ * This component displays a list of years with multiple winners for producers.
+ */
 export default function ProducersWinsComponent() {
   const producersWins = useQuery({
     retry: false,
@@ -45,6 +49,7 @@ export default function ProducersWinsComponent() {
       <Typography.Title level={5}>Maximum</Typography.Title>
 
       <Table
+        data-testid="producers-wins-max-list"
         columns={columns}
         loading={producersWins.isFetching}
         dataSource={producersWins.data?.max || []}
@@ -57,6 +62,7 @@ export default function ProducersWinsComponent() {
       </Typography.Title>
 
       <Table
+        data-testid="producers-wins-min-list"
         columns={columns}
         loading={producersWins.isFetching}
         dataSource={producersWins.data?.min || []}

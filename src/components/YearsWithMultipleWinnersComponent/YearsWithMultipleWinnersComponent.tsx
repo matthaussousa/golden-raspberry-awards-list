@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getYearsWithMultipleWinners } from "../../providers/moviesProvider.";
+import { getYearsWithMultipleWinners } from "../../providers/moviesProvider";
 import { Table, TableProps, Typography } from "antd";
 import { YearWinnerType } from "../../types/movieTypes";
 
@@ -16,6 +16,9 @@ const columns: TableProps<YearWinnerType>["columns"] = [
   },
 ];
 
+/**
+ * Component that displays a list of years with multiple winners.
+ */
 export default function YearsWithMultipleWinnersComponent() {
   const yearsWithMultipleWinners = useQuery({
     retry: false,
@@ -33,6 +36,7 @@ export default function YearsWithMultipleWinnersComponent() {
       </Typography.Title>
 
       <Table
+        data-testid="years-multiple-winners-list"
         columns={columns}
         loading={yearsWithMultipleWinners.isFetching}
         dataSource={yearsWithMultipleWinners.data || []}
