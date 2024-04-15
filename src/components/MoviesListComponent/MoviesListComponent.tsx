@@ -75,7 +75,7 @@ export default function MoviesListComponent() {
     retry: false,
     queryKey: ["moviesList", params],
     queryFn: async () => {
-      const response = await getMovies(params);
+      const response = await getMovies({ ...params, page: params.page - 1 });
 
       return response.data;
     },
@@ -92,8 +92,8 @@ export default function MoviesListComponent() {
       filters: Record<string, FilterValue | null>
     ) => {
       setParams({
-        page: pagination.current || defaultParams.page,
-        size: pagination.pageSize || defaultParams.size,
+        page: pagination.current ?? defaultParams.page,
+        size: pagination.pageSize ?? defaultParams.size,
         winner: filters.winner ? (filters.winner[0] as boolean) : undefined,
         year: filters.year ? parseInt(filters.year[0] as string) : undefined,
       });
@@ -112,10 +112,7 @@ export default function MoviesListComponent() {
         dataSource={moviesList.data?.content || []}
         pagination={{
           pageSize: params.size,
-          total:
-            moviesList.data?.totalElements && moviesList.data?.totalElements > 0
-              ? moviesList.data?.totalElements - params.size
-              : 0,
+          total: moviesList.data?.totalElements,
           showTotal: (total) => total + " items",
           showSizeChanger: false,
         }}

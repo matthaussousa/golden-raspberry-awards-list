@@ -76,7 +76,7 @@ describe("MoviesListComponent", () => {
     expect(mock.history.get.length).toBe(2);
     expect(mock.history.get[1].params).toStrictEqual({
       year: 1990,
-      page: 1,
+      page: 0,
       size: 10,
       winner: undefined,
     });
@@ -108,7 +108,7 @@ describe("MoviesListComponent", () => {
     expect(mock.history.get.length).toBe(2);
     expect(mock.history.get[1].params).toStrictEqual({
       year: undefined,
-      page: 1,
+      page: 0,
       size: 10,
       winner: true,
     });
@@ -116,7 +116,7 @@ describe("MoviesListComponent", () => {
 
   it("should paginate", async () => {
     const expectedData = {
-      totalElements: 2,
+      totalElements: 11,
       content: [
         {
           id: 1,
@@ -207,7 +207,7 @@ describe("MoviesListComponent", () => {
     expect(mock.history.get.length).toBe(2);
     expect(mock.history.get[1].params).toStrictEqual({
       year: undefined,
-      page: 2,
+      page: 1,
       size: 10,
       winner: undefined,
     });
