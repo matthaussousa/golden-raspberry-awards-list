@@ -43,7 +43,7 @@ export default function ProducersWinsComponent() {
   return (
     <>
       <Typography.Title level={4}>
-        List years with multiple winners
+        Producers with longest and shortest interval between wins
       </Typography.Title>
 
       <Typography.Title level={5}>Maximum</Typography.Title>
